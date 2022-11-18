@@ -33,18 +33,19 @@ export async function signUp(req, res) {
 export async function signIn(req, res) {
   const { email, password } = req.body;
 
-  try{
-    const user = await usersCollection.findOne({email})
-    const isCorrectPassword = bcrypt.compareSync(password, user.email)
+  try {
+    const user = await usersCollection.findOne({ email });
+    const isCorrectPassword = bcrypt.compareSync(password, user.email);
 
-    if(!user || !isCorrectPassword){
-      return res.status(422).send({message: "Email ou senha incorreto!"})
+    if (!user || !isCorrectPassword) {
+      return res.status(422).send({ message: "Email ou senha incorreto!" });
     }
 
-    const token = uuid()
+    const token = uuid();
+    await sessionsCollection.insertOne({ userId: user._id, token });
 
-
-  }catch(error){
+    res.status(200).send(token);
+  } catch (error) {
     console.log(error);
     res.sendStatus(500);
   }
