@@ -35,10 +35,15 @@ export async function signIn(req, res) {
 
   try {
     const user = await usersCollection.findOne({ email });
-    const isCorrectPassword = bcrypt.compareSync(password, user.email);
 
-    if (!user || !isCorrectPassword) {
+    if (!user || !bcrypt.compareSync(password, user?.password)) {
       return res.status(422).send({ message: "Email ou senha incorreto!" });
+    }
+
+    const sessionExist = await sessionsCollection.findOne({ userId: user._id });
+    if (sessionExist) {
+      await sessionsCollection.deleteOne(sessionExist);
+      console.log("excluindo: ",sessionExist)
     }
 
     const token = uuid();
