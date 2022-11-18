@@ -13,9 +13,21 @@ export async function signUp(req, res) {
     return res.status(422).send({ message: errors });
   }
 
-  
+  try {
+    const emailExist = await usersCollection.findOne({ email: user.email });
+    if (emailExist) {
+      return res.status(409).send({ message: "Email já cadastrado!" });
+    }
 
-  res.sendStatus(200);
+    const passwardHash = bcrypt.hashSync(user.password, 10);
+
+    await usersCollection.insertOne({ ...user, password: passwardHash });
+
+    res.sendStatus(201);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
 }
 
 export async function signIn(req, res) {}
