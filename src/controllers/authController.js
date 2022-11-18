@@ -43,7 +43,6 @@ export async function signIn(req, res) {
     const sessionExist = await sessionsCollection.findOne({ userId: user._id });
     if (sessionExist) {
       await sessionsCollection.deleteOne(sessionExist);
-      console.log("excluindo: ",sessionExist)
     }
 
     const token = uuid();
@@ -56,4 +55,21 @@ export async function signIn(req, res) {
   }
 }
 
-export async function signOut(req, res) {}
+export async function signOut(req, res) {
+  const { authorization } = req.headers;
+  const token = authorization?.replace("Bearer ", "");
+
+  try {
+    if (!token) return res.sendStatus(401);
+
+    const sessionExist = await sessionsCollection.findOne({ token });
+    if (!sessionExist) return res.sendStatus(401);
+
+    await sessionsCollection.deleteOne({ token });
+
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+}
