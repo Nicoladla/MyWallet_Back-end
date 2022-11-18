@@ -1,16 +1,17 @@
 import express from "express";
 import cors from "cors";
-import joi from "joi";
 import dotenv from "dotenv";
 
-import {} from "./controllers/authController.js";
-import {} from "./controllers/walletController.js";
-import {} from "./controllers/sessionsController.js";
+import authRouter from "./routers/authRouters.js";
+import walletRouter from "./routers/walletRouters.js";
 
 dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+app.use(authRouter);
+app.use(walletRouter);
 
 app.listen(process.env.PORT_EXPRESS, () =>
   console.log(`App running on port ${process.env.PORT_EXPRESS}`)
