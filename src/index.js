@@ -13,6 +13,6 @@ app.use(cors());
 app.use(authRouter);
 app.use(transactionRouter);
 
-app.listen(process.env.PORT_EXPRESS, () =>
-  console.log(`App running on port ${process.env.PORT_EXPRESS}`)
-);
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => console.log(`App running on port ${port}`));
