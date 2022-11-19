@@ -56,10 +56,10 @@ export async function signIn(req, res) {
 }
 
 export async function signOut(req, res) {
-  const token = req.token;
+  const session = req.session;
 
   try {
-    await sessionsCollection.deleteOne({ token });
+    await sessionsCollection.deleteOne(session);
 
     res.sendStatus(200);
   } catch (error) {
