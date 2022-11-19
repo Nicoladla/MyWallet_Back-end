@@ -56,15 +56,9 @@ export async function signIn(req, res) {
 }
 
 export async function signOut(req, res) {
-  const { authorization } = req.headers;
-  const token = authorization?.replace("Bearer ", "");
+  const token = req.token;
 
   try {
-    if (!token) return res.sendStatus(401);
-
-    const sessionExist = await sessionsCollection.findOne({ token });
-    if (!sessionExist) return res.sendStatus(401);
-
     await sessionsCollection.deleteOne({ token });
 
     res.sendStatus(200);

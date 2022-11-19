@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import transactionSchema from "../schema/transactionSchema";
+import transactionSchema from "../schema/transactionSchema.js";
 
 export async function postTransaction(req, res) {
     
