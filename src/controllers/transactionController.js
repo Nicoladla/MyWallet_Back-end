@@ -27,4 +27,19 @@ export async function postTransaction(req, res) {
   }
 }
 
-export async function getTransaction(req, res) {}
+export async function getTransaction(req, res) {
+  const user = req.user;
+
+  try {
+    const transactions = await transactionsCollection
+      .find({
+        userId: user._id,
+      })
+      .toArray();
+
+    res.status(200).send({ userName: user.name, transactions });
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+}

@@ -13,6 +13,7 @@ export default async function tokenValidation(req, res, next) {
     const user = await usersCollection.findOne({ _id: session.userId });
     if (!user) return res.sendStatus(401);
 
+    req.user = user;
     req.session = session;
     next();
   } catch (error) {
