@@ -26,8 +26,8 @@ Confira também o repositório do frontend dessa aplicação: <https://github.co
 
   ```javascript
   {
-    name: Fulano,
-    email: fulano123@gmail.com,
-    password: ful4ninh0_Milgr4l
+    name: "Fulano",
+    email: "fulano123@gmail.com",
+    password: "ful4ninh0_Milgr4l"
   }
   ```
