@@ -68,3 +68,33 @@ Confira também o repositório do frontend dessa aplicação: <https://github.co
     ```
 
     - **OBS**: Esse erro pode se repetir nas próximas rotas.
+
+#### 2- Para entrar na conta:
+
+- Método: **`POST`**;
+- Rota: **`/sign-in`**;
+
+* Envie pelo **body** da requisição os seguintes dados:
+
+  ```javascript
+  {
+    email: "fulano123@gmail.com",
+    password: "ful4ninh0_Milgr4l"
+  }
+  ```
+
+- Status Code:
+
+  - Ocorre quando dá tudo certo:
+
+    ```
+    status: 200,
+    ```
+
+  - Ocorre quando o email ou a senha estão incorretos, ou os campos estão preenchidos em um formato incorreto:
+
+    ```
+    status: 422,
+    message: Email ou senha incorreto!,
+    message: [...]
+    ```
