@@ -98,3 +98,29 @@ Confira também o repositório do frontend dessa aplicação: <https://github.co
     message: Email ou senha incorreto!,
     message: [...]
     ```
+
+#### Token:
+
+- Ao entrar na conta, você receberá um **token**. Esse token será necessário para você autenticar "quem você é" em rotas privadas. Veja o formato do token:
+
+  ```
+  e4b5abbd-abf9-4589-baa9-1dd514c25983
+  ```
+
+- Em todas as rotas que necessite enviar o token, esse erro estará presente:
+
+  ```
+  status: 401
+  ```
+
+  - **OBS:** Ocorre quando o token não é enviado ou não existe no banco de dados, ou o usuário dono do token não existe mais:
+
+- Quando necessário, o token deve ser enviado, pelo `header`, no seguinte formato:
+
+  ```javascript
+  {
+    headers: {
+      Authorization: `Bearer e4b5abbd-abf9...`,
+    }
+  }
+  ```
