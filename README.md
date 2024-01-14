@@ -124,3 +124,18 @@ Confira também o repositório do frontend dessa aplicação: <https://github.co
     }
   }
   ```
+
+#### 3- Para sair da conta:
+
+- Método: **`DELETE`**;
+- Rota: **`/sign-out`**;
+
+* Você deverá enviar pelo `header` da requisição o token que você recebeu ao entrar na conta.
+
+- Status Code:
+
+  - Ocorre quando dá tudo certo:
+
+    ```
+    status: 200
+    ```
