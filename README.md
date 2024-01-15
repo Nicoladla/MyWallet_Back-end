@@ -139,3 +139,20 @@ Confira também o repositório do frontend dessa aplicação: <https://github.co
     ```
     status: 200
     ```
+
+#### 4- Para adicionar uma saída ou entrada de dinheiro:
+
+- Método: **`POST`**;
+- Rota: **`/transaction`**;
+
+* Você deve enviar pelo **header** da requisição o **token** do usuário.
+
+* Você deve enviar pelo **body** os seguintes dados:
+
+  ```javascript
+  {
+    value: 10000,
+    description: "Salário",
+    type: "deposit"
+  }
+  ```
