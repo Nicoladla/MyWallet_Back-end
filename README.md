@@ -156,3 +156,18 @@ Confira também o repositório do frontend dessa aplicação: <https://github.co
     type: "deposit"
   }
   ```
+  
+  - **Observações**:
+
+    - **value** deve ser um número maior que 0;
+    - **description** deve ser uma string não vazia e maior que 2;
+    - **type** só pode ser a string `"deposit"` ou `"withdraw"`;
+    - **Todos** os campos são obrigatórios.
+
+- Status Code:
+
+  - Ocorre quando dá tudo certo:
+
+    ```
+      status: 201
+    ```
