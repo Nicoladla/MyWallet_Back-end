@@ -171,3 +171,12 @@ Confira também o repositório do frontend dessa aplicação: <https://github.co
     ```
       status: 201
     ```
+
+#### 5- Para receber a lista de transações:
+
+- Método: **`GET`**;
+- Rota: **`/transaction`**;
+
+* Você deve enviar pelo **header** da requisição o **token** do usuário.
+
+* Você receberá um array com todas as transações:
