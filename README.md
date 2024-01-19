@@ -180,3 +180,37 @@ Confira também o repositório do frontend dessa aplicação: <https://github.co
 * Você deve enviar pelo **header** da requisição o **token** do usuário.
 
 * Você receberá um array com todas as transações:
+
+  ```javascript
+  {
+    userName: "fulano",
+    transactions: [
+      {
+        _id: "637934d2952c68857e7cd778",
+        value: 10000,
+        description: "Salário",
+        type: "deposit",
+        userId: "6379342c952c68857e7cd776",
+        date: "19/11"
+      },
+      {
+        _id: "637a1512d93d49c2ce0be581",
+        value: 4000,
+        description: "Aquela merenda da boa",
+        type: "withdraw",
+        userId: "6379342c952c68857e7cd776",
+        date: "20/11"
+      }
+    ]
+  }
+  ```
+
+- Status Code:
+
+  - Ocorre quando dá tudo certo:
+
+    ```
+      status: 200
+    ```
+
+---
