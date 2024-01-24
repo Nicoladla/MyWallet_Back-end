@@ -214,3 +214,13 @@ Confira também o repositório do frontend dessa aplicação: <https://github.co
     ```
 
 ---
+
+## Informações técnicas
+
+### Observações:
+
+- Esse projeto utiliza o banco de dados NoSQL **MongoDB**. Portanto, você deverá ter ele instalado na sua máquina, para a execução correta da aplicação.
+
+- Para fazer a instalação do MongoDB, você pode seguir algum tutorial pela internet, ou se preferir, você pode ir direto no [site oficial](https://www.mongodb.com/) do MongoDB.
+
+- A versão do MongoDB usada nesse projeto foi a `v5.0.18`.
