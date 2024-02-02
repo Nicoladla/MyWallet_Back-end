@@ -156,7 +156,6 @@ Confira também o repositório do frontend dessa aplicação: <https://github.co
     type: "deposit"
   }
   ```
-
   - **Observações**:
 
     - **value** deve ser um número maior que 0;
