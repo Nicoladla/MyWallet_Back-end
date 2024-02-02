@@ -240,3 +240,5 @@ Confira também o repositório do frontend dessa aplicação: <https://github.co
   - Joi;
   - Uuid;
   - MongoDB.
+
+### Como iniciar o projeto na minha máquina?
